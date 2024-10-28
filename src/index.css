@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ProseMirror {
+  > * + * {
+    margin-top: 0.75em;
+  }
+
+  ul,
+  ol {
+    padding: 0 1rem;
+  }
+
+  ul[data-type="taskList"] {
+    list-style: none;
+    padding: 0;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      
+      > label {
+        margin-right: 0.5rem;
+      }
+    }
+
+    input[type="checkbox"] {
+      margin: 0.5rem 0.5rem 0 0;
+    }
+  }
+
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 1em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 0.8em;
+  }
+
+  h3 {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-top: 0.6em;
+  }
+
+  code {
+    background-color: rgba(97, 97, 97, 0.1);
+    border-radius: 0.25em;
+    padding: 0.2em 0.4em;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  mark {
+    background-color: #fef08a;
+  }
+}
+
+.ProseMirror:focus {
+  outline: none;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
